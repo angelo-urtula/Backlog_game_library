@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+    <h1>Welcome to <%= @user.username %>'s profile!</h1>
+    <h3>Check out their backlog of games!</h3>
+    <% if @user.games.empty? %>
+    <p> Looks like they've cleared their backlog!! </p>
+    <% else %>
+    <% @user.games.each do |game| %>
+        <%= game.name %> (<%= game.console %>, <%= game.genre %>)<br>
+
+        <% end %>
+        <% end %>
+
+</html>

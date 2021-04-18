@@ -9,28 +9,24 @@ class LoggedController < ApplicationController
         redirect '/games'
     end
 
-    get '/logout' do
-        logout!
-    end
-
     get '/signup' do
         erb :'/logged/signup'
     end
 
     post '/signedup' do
         if params[:username].empty? || params[:password].empty?
-            redirect to '/signup/failureempty'
+            redirect to '/failureempty'
         else
             signup(params[:username], params[:password])
         end
         redirect '/games'
     end
 
-    get '/signup/failure' do
+    get '/failure' do
         erb :'/logged/signup_failure'
     end
 
-    get '/signup/failureempty' do
+    get '/failureempty' do
         erb :'/logged/signup_failureempty'
     end
 
@@ -39,4 +35,8 @@ class LoggedController < ApplicationController
         "You are logged in as #{session[:username]}"
     end
 
+    get '/logout' do
+        logout!
+        redirect to '/games'
+    end
 end

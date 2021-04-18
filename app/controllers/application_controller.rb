@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
     def signup(username, password)
       if User.find_by(:username => username)
-        redirect '/signup/failure'
+        redirect '/failure'
       else
         user = User.create(:username => username, :password => password)
         session[:username] = user.username

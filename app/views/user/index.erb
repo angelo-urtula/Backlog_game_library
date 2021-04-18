@@ -1,0 +1,4 @@
+<h1>Wanna check out other backloggers?</h1>
+<% @users.each do |user| %>
+    <a href='/profile/<%= user.id %>'><%= user.username %></a><br>
+    <% end %>

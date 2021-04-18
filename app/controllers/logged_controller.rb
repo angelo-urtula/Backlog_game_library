@@ -6,7 +6,7 @@ class LoggedController < ApplicationController
 
     post '/logged' do
         login(params[:username], params[:password])
-        redirect '/games'
+        redirect '/'
     end
 
     get '/signup' do
@@ -19,7 +19,7 @@ class LoggedController < ApplicationController
         else
             signup(params[:username], params[:password])
         end
-        redirect '/games'
+        redirect '/'
     end
 
     get '/failure' do
@@ -30,13 +30,8 @@ class LoggedController < ApplicationController
         erb :'/logged/signup_failureempty'
     end
 
-    get '/games' do
-        
-        "You are logged in as #{session[:username]}"
-    end
-
     get '/logout' do
         logout!
-        redirect to '/games'
+        redirect to '/'
     end
 end

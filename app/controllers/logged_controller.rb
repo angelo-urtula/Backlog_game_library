@@ -5,8 +5,12 @@ class LoggedController < ApplicationController
     end
 
     post '/logged' do
-        session[:username] = params[:username]
+        login(params[:username], params[:password])
         redirect '/games'
+    end
+
+    get '/logout' do
+        logout!
     end
 
     get '/games' do

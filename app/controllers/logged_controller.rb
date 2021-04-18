@@ -17,7 +17,7 @@ class LoggedController < ApplicationController
         erb :'/logged/signup'
     end
 
-    post '/signedup' do
+    post '/signup/signedup' do
         signup(params[:username], params[:password])
         redirect '/games'
     end

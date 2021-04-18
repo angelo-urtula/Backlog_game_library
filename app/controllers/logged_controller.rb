@@ -17,13 +17,21 @@ class LoggedController < ApplicationController
         erb :'/logged/signup'
     end
 
-    post '/signup/signedup' do
-        signup(params[:username], params[:password])
+    post '/signedup' do
+        if params[:username].empty? || params[:password].empty?
+            redirect to '/signup/failureempty'
+        else
+            signup(params[:username], params[:password])
+        end
         redirect '/games'
     end
 
     get '/signup/failure' do
         erb :'/logged/signup_failure'
+    end
+
+    get '/signup/failureempty' do
+        erb :'/logged/signup_failureempty'
     end
 
     get '/games' do

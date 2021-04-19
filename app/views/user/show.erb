@@ -5,7 +5,7 @@
     <p> Looks like they've cleared their backlog!! </p>
     <% else %>
     <% @user.games.each do |game| %>
-        <%= game.name %> (<%= game.console %>, <%= game.genre %>)<br>
+        <a href="/games/<%= game.id %>"><%= game.name %></a> (<%= game.console %>, <%= game.genre %>)<br>
 
         <% end %>
         <% end %>

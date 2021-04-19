@@ -28,9 +28,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.update(params["user"])
         if !params["game"]["name"].empty? && !params["game"]["console"].empty? && !params["game"]["genre"].empty?
-            @user.games << Game.create(:name => params["game"]["name"], :console => params["game"]["console"], :genre => params["game"]["genre"])
-        
-        
+            @user.games << Game.create(:name => params["game"]["name"], :console => params["game"]["console"], :genre => params["game"]["genre"])       
         end
         redirect to "/profiles/#{params[:id]}"
     end

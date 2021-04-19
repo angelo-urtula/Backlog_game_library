@@ -1,0 +1,12 @@
+<h1>Add/remove games from your backlog, <%= @user.username %>!</h1>
+<form method='post' action='profiles/<%= @user.id %>'>
+    <input type="hidden" type="hidden" name="_method" value="patch">
+    Choose from current games!<br>
+    <% @games.each do |game| %>
+        <input type="checkbox" name="user[game_ids][]" id="<%= game.id %>" value="<%= game.id %>" <%= 'checked' if @user.games.include?(game)%>><%= game.name %></input><br>
+        <% end %>
+    Add a new game!
+    <input type="text" name="game[name]" id='game_name'></input><br>
+    <input type="submit" value="Edit!">
+    </form>
+

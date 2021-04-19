@@ -1,14 +1,15 @@
 <h1><%= @game.name %></h1><br>
 
-<p>Details:<br>
-    Console: <%= @game.console %><br>
-    Genre: <%= @game.genre %></p><br>
+Details:<br>
+    <p style="margin-left: 40px">Console: <%= @game.console %></p>
+    <p style="margin-left: 40px">Genre: <%= @game.genre %></p>
+    
     
     <% if @game.users.empty? %>
     Looks like no one has this in their backlog!
     <% else %>
     Here's a list of other users who have this game in their backlog!<br>
-    <%= @game.users.each do |user| %>
+    <% @game.users.each do |user| %>
         <a href="/profile/<%= user.id %>"><%= user.username %></a>
         <% end %>
         <% end %>

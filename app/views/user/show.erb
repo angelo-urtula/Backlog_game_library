@@ -7,7 +7,7 @@
     <% if @user.games.empty? %>
     <p> Looks like they've cleared their backlog!! </p>
     <% else %>
-    <h3>Check out their backlog of games!</h3>
+    <h3>Check out their current backlog of games!</h3>
     <% @user.games.each do |game| %>
         <a href="/game/<%= game.id %>"><%= game.name %></a> (<%= game.console %>, <%= game.genre %>)<br>
         <% end %>

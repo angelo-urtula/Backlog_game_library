@@ -10,7 +10,7 @@ Details:<br>
     <% else %>
     Here's a list of other users who have this game in their backlog!<br>
     <% @game.users.each do |user| %>
-        <a href="/profiles/<%= user.id %>"><%= user.username %></a>
+        <a href="/profiles/<%= user.id %>"><%= user.username %></a><br>
         <% end %>
         <% end %>
 

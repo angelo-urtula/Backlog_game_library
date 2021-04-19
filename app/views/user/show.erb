@@ -1,12 +1,15 @@
 <!DOCTYPE html>
     <h1>Welcome to <%= @user.username %>'s profile!</h1>
+    <% if session[:username] == @user.username %>
+    <a href='/profiles/<%= @user.id %>/edit'>Edit your Profile!</a>
+    <% end %>
+    
     <% if @user.games.empty? %>
     <p> Looks like they've cleared their backlog!! </p>
     <% else %>
     <h3>Check out their backlog of games!</h3>
     <% @user.games.each do |game| %>
         <a href="/game/<%= game.id %>"><%= game.name %></a> (<%= game.console %>, <%= game.genre %>)<br>
-
         <% end %>
         <% end %>
 

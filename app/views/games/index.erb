@@ -10,9 +10,8 @@ try at some point!</p>
 been waiting for a co-op buddy to start the game with! Or maybe you've already played that game and can hype up the game enough
 so other users can finally clear those games from their backlogs!!!</h5><br>
 <ol type="A">
-<% @games.each do |game| %>    
+<% @games.order('name ASC').each do |game| %>    
         <li><%= game.name %></li>    
     <% end %>
     </ol>
-    <%= @games %>
 </html>

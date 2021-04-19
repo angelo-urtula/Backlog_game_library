@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         end
     end
 
-    post '/profiles/:id' do
+    patch '/profiles/:id' do
         if !params[:user].keys.include?("game_ids")
             params[:user]["game_ids"] = []
         end
@@ -32,4 +32,6 @@ class UsersController < ApplicationController
         end
         redirect to "/profiles/#{params[:id]}"
     end
+
+
 end
